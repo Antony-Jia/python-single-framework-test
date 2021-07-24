@@ -13,7 +13,7 @@ async def initDB():
     # which contain models from "app.models"
     await Tortoise.init(
         db_url='mysql://root:1qaz!QAZ@192.168.30.195:3306/pythonorm',
-        modules={'models': ['entity.modeltest']}
+        modules={'models': ['entity.modeltest', 'core.timeline.model.timelinemessage', 'core.timeline.model.timelineentry']}
     )
     # Generate the schema
     await Tortoise.generate_schemas()
