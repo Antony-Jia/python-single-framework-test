@@ -8,13 +8,17 @@ from core.timeline.timelinequeue import TimelineQueue
 
 class TimelineQueueImpl(TimelineQueue):
     
+
+    def init(self):
+        pass
+
     #获取队列ID
     def getQueueId():
         pass
 
 
     #消息存储
-    def store(self, tlm:TimelineMessage) -> TimelineEntry :
+    async def store(self, tlm:TimelineMessage) -> TimelineEntry :
         sequenceId = nextsequenceId(0)
         await tlm.save()
         tle = TimelineEntry()
@@ -24,7 +28,7 @@ class TimelineQueueImpl(TimelineQueue):
         return tle
 
     #消息存储
-    def store(self, sequenceId, tlm:TimelineMessage) -> TimelineEntry :
+    async def store(self, sequenceId, tlm:TimelineMessage) -> TimelineEntry :
         await tlm.save()
         tle = TimelineEntry()
         tle.sequenceId = sequenceId
@@ -33,10 +37,9 @@ class TimelineQueueImpl(TimelineQueue):
         return tle
 
     #消息异步存储
-    def storeAsync(self, tlm:TimelineMessage, callBack:TimelineCallBack) -> futures:
+    async def storeAsync(self, tlm:TimelineMessage, callBack:TimelineCallBack) -> futures:
         pass
 
 
-    #消息异步存储
-    def storeAsync(self, sequenceId, tlm:TimelineMessage, callBack:TimelineCallBack) -> futures:
+    async def storeAsync(self, sequenceId, tlm:TimelineMessage, callBack:TimelineCallBack) -> futures:
         pass

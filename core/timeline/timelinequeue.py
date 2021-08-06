@@ -9,6 +9,10 @@ from core.timeline.model.timelineentry import TimelineEntry
 from concurrent.futures import ThreadPoolExecutor, Future
 
 class TimelineQueue:
+
+
+    def init():
+        pass
     
     #获取队列ID
     def getQueueId():
